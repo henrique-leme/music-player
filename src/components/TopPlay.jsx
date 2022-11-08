@@ -37,6 +37,11 @@ const TopPlay = () => {
             <p className="text-gray-300 text-base cursor-pointer">See more...</p>
           </Link>
         </div>
+        <div className="mt-4 flex flex-col gap-1">
+          {topPlays?.map((song, i) => (
+            <TopChartCard />
+          ))}
+        </div>
       </div>
     </div>
   );
