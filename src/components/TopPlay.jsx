@@ -7,15 +7,32 @@ import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
-import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-
 const TopChartCard = ({ song, i }) => (
   <div className="w-full flex flex-row items-center hover:bg[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
-    {song.title}
+    <h3 className="fot-bold text-base text-white mr-3">{i + 1}.</h3>
+    <div className="flex-1 flex flex-row justify-between items-center">
+      <img
+        className="w-20 h-20 rounded-lg"
+        src={song?.images?.coverart}
+        alt={song?.title}
+      />
+      <div className="flex-1 flex flex-col justify-center mx-3">
+        <Link to={`/songs/${song.key}`}>
+          <p className="text-xl fon-bold text-white">
+            {song?.title}
+          </p>
+        </Link>
+        <Link to={`/artists/${song?.artists[0].adamid}`}>
+          <p className="text-ase font-bold text-gray-300 mt-1">
+            {song?.subtitle}
+          </p>
+        </Link>
+      </div>
+    </div>
   </div>
 );
 
@@ -36,7 +53,7 @@ const TopPlay = () => {
   };
 
   const handlePlayClick = () => {
-    dispatch(setActiveSong({ song, data, index }));
+    dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
 
@@ -89,10 +106,10 @@ const TopPlay = () => {
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${artist?.artists[0].adamid}`}>
-                <img 
-                src={artist?.images?.background} 
-                alt="Name" 
-                className="rounded-full w-full object-cover" 
+                <img
+                  src={artist?.images?.background}
+                  alt="Name"
+                  className="rounded-full w-full object-cover"
                 />
               </Link>
             </SwiperSlide>
