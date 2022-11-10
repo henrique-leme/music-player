@@ -77,12 +77,11 @@ const TopPlay = () => {
           modules={[FreeMode]}
           className="mt-4"
         >
-         {topPlays?.map((song, i) => (
+          {topPlays?.slice(0, 5).map((artist) => (
             <SwiperSlide
-              key={song?.key}
-              style={{width: '25%', height: 'auto'}}
+              key={artist?.key}
+              style={{ width: '25%', height: 'auto' }}
               className="shadow-lg rounded-full animate-slideright"
-              
             >
               <Link to={`/artists/${artist?.artists[0].adamid}`}>
                 <img 
@@ -91,10 +90,9 @@ const TopPlay = () => {
                 className="rounded-full w-full object-cover" 
                 />
               </Link>
-             </SwiperSlide>
+            </SwiperSlide>
           ))}
         </Swiper>
-    </div>
       </div>
     </div>
   );
