@@ -6,6 +6,8 @@ import { setActiveSong, playPause } from '../redux/features/playerSlice';
 
 const SongDetails = () => {
   const { songid } = useParams();
+  const dispatch = useDispatch();
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
   console.log(songid);
 
   return <div>SongDetails</div>;
