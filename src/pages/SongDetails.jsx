@@ -10,7 +10,11 @@ const SongDetails = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   console.log(songid);
 
-  return <div>SongDetails</div>;
+  return (
+    <div className="flex felx-col">
+      <DetailsHeader artistId={artistId} songData={songData} />
+    </div>
+  );
 };
 
 export default SongDetails;
