@@ -13,6 +13,10 @@ const SongDetails = () => {
   return (
     <div className="flex felx-col">
       <DetailsHeader artistId={artistId} songData={songData} />
+
+      <div className="mb-10">
+        <h2 className="text-white text-3x1 font-bold">Lyrics</h2>
+      </div>
     </div>
   );
 };
