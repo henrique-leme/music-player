@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
+import { useGeSongsDetailsQuery } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
   const { songid } = useParams();
