@@ -9,7 +9,9 @@ const SongDetails = () => {
   const { songid } = useParams();
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+  const { data: songData, isFetching: isFetchingSongDetails} = useGeSongsDetailsQuery({songid})
   console.log(songid);
+
 
   return (
     <div className="flex felx-col">
