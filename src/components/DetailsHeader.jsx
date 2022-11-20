@@ -9,6 +9,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => (
           ? artistData?.artists[artistId].attributes?.arwork?.url.replace('{w}', '500').replace('{h}', '500')
           : songData?.images?.coverart}
         alt="Song Artwork"
+        className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border02 shadow-xl shadow-black"
       />
     </div>
   </div>
