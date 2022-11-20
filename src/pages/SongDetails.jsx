@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
-import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
+import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
   const { songid } = useParams();
@@ -11,6 +11,9 @@ const SongDetails = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid });
   console.log(songid);
+  const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery({ songid });
+  if (isFetchingSongDetails || isFetchingRelatedSongs) return <Loader title="Searching for song details..." />;
+  if (error) return <Error />;
 
   return (
     <div className="flex felx-col">
@@ -25,7 +28,12 @@ const SongDetails = () => {
             )) : <p className="text-gray-400 text-base my-1">No lyrics found.</p>}
         </div>
       </div>
-      <RelatedSongs />
+      <RelatedSongs
+        data={data}
+        isPlaying={isPlaying}
+        activeSong={activeSong}
+
+      />
     </div>
   );
 };
