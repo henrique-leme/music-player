@@ -25,6 +25,7 @@ const SongDetails = () => {
             )) : <p className="text-gray-400 text-base my-1">No lyrics found.</p>}
         </div>
       </div>
+      <RelatedSongs />
     </div>
   );
 };
