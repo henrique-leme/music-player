@@ -24,12 +24,11 @@ const ArtistDetails = () => {
       />
 
       <RelatedSongs
-        data={data}
+        data={Object.values(artistData?.song)}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
-        handlePauseClick={handlePauseClick}
-        handlePlayClick={handlePlayClick}
+
       />
 
     </div>
