@@ -46,6 +46,14 @@ const ArtistDetails = () => {
         </div>
       </div>
 
+      <RelatedSongs
+        data={data}
+        artistId={artistId}
+        isPlaying={isPlaying}
+        activeSong={activeSong}
+        handlePauseClick={handlePauseClick}
+        handlePlayClick={handlePlayClick}
+      />
 
     </div>
   );
