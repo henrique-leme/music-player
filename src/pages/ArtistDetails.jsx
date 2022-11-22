@@ -11,7 +11,7 @@ const ArtistDetails = () => {
   const { id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const { data: artistData, isFetching: isFetchingArtistDetails } = useGetArtistDetailsQuery({ artistId });
+  const { data: artistData, isFetching: isFetchingArtistDetails, error } = useGetArtistDetailsQuery({ artistId });
 
   if (isFetchingArtistDetails) return <Loader title="Searching for Artist details..." />;
   if (error) return <Error />;
@@ -20,7 +20,7 @@ const ArtistDetails = () => {
     <div className="flex flex-col">
       <DetailsHeader
         artistId={artistId}
-        songData={songData}
+        artistData={artistData}
       />
 
       <div className="mb-10">
