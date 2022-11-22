@@ -13,6 +13,9 @@ const ArtistDetails = () => {
   const dispatch = useDispatch();
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+
+  const { data, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songid });
+  const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid });
   return (
   );
 };
