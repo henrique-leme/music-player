@@ -1,5 +1,11 @@
-const ArtistCard = () => {
-  <div>ArtistCard</div>;
+import { useNavigate } from 'react-router-dom';
+
+const ArtistCard = ({ track }) => {
+  const navigate = useNavigate();
+
+  return (
+    
+  )
 };
 
 export default ArtistCard;
