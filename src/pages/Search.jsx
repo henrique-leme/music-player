@@ -4,8 +4,9 @@ import { Error, Loader, SongCard } from '../components';
 import { useGetSongsBySearchQuery } from '../redux/services/shazamCore';
 
 const Search = () => {
+  const { searchTerm } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetSongsBySearchQuery();
+  const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
 
   if (isFetching) return <Loader title="Loading songs around you..." />;
   if (error) return <Error />;
